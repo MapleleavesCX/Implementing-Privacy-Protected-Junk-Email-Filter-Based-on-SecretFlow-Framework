@@ -16,18 +16,13 @@ params = {
 
 from secretflow.ml.linear.ss_sgd import SSRegression
 
-from toolfunc import timing
-
 class SecureLogisticRegression:
-    @timing
     def __init__(self,spu):
         self.model = SSRegression(spu)
 
-    @timing
     def train(self, X_train, y_train, params):
         self.model.fit(X_train, y_train, **params)
 
-    @timing
     def predict(self, X_test):
         return self.model.predict(X_test)
 
