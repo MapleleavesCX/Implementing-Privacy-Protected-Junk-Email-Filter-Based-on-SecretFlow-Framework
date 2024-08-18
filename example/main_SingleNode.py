@@ -140,10 +140,12 @@ y_train, y_test = train_test_split(y_data, train_size=split_factor, random_state
 
 # 假设用户选择了模型ID为1的 SecureLogisticRegression 模型
 model_id = 1
+#选择模型ID为2的DecisionTree模型
+#model_id=2
 print('初始化...')
 model_chooser = ModelChooser(model_id, spu)
 
-# 设置一些训练参数
+# 逻辑回归的参数
 params = {
     'epochs':5,
     'learning_rate':0.3,
@@ -153,6 +155,22 @@ params = {
     'penalty':'l2', 
     'l2_norm':0.1
 }
+
+#决策树的参数
+'''
+params = {
+    # for more detail, see Xgb API doc
+    'num_boost_round': 5,
+    'max_depth': 5,
+    'learning_rate': 0.1,
+    'sketch_eps': 0.08,
+    'objective': 'logistic',
+    'reg_lambda': 0.1,
+    'subsample': 1,
+    'colsample_by_tree': 1,
+    'base_score': 0.5,
+}
+'''
 
 #*******************************************预测*************************************************
 
