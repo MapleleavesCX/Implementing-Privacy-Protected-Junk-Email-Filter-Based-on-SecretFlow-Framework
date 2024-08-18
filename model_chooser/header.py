@@ -71,11 +71,12 @@ v1.5.0b0
 # 以下为模型选择的常量model_chose定义：
 '''
 LogisticRegression = 1
-NaiveBayesian = 2
-Perceptron = 3
-SVM = 4
-NN = 5
-DecisionTree = 6
+DecisionTree = 2
+NaiveBayesian = 3
+Perceptron = 4
+SVM = 5
+NN = 6
+
 '''
 
 
@@ -85,13 +86,14 @@ DecisionTree = 6
 
 
 from model.SecureLogisticRegression import SecureLogisticRegression
-
+from DecisionTree import DecisionTree
 # 其他模型的导入...
 
 class ModelChooser:
     def __init__(self, model_id, spu, other=None):
         self.models = {
             1: SecureLogisticRegression,
+            2: DecisionTree,
             # 其他模型的映射...
         }
         self.model_class = self.models.get(model_id)
