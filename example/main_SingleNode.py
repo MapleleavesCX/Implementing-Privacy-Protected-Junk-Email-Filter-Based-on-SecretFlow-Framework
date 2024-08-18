@@ -1,8 +1,4 @@
-# -*- coding: utf-8 -*-
-# @Date    : 2024/08/10
-# @Author  : MapleleavesCX
-
-# 这里是单节点本地模拟集群MPC-逻辑回归模型 示例
+# 这里是单节点本地模拟 示例
 
 import sys
 import time
@@ -112,12 +108,6 @@ X_data = FedNdarray(
     partition_way=PartitionWay.VERTICAL,
 )
 
-# 由于label只有一列，使用Divide_data似乎总是有问题，只好为y单独写一个处理函数
-def read_y(data):
-    if isinstance(data, pd.Series):
-        data = data.to_numpy()  # 将 Series 转换为 NumPy 数组
-    return data
-
 # 把 y 分给alice
 y_data = FedNdarray(
     partitions={alice: alice(Divide_y)(y)},
@@ -142,6 +132,7 @@ y_train, y_test = train_test_split(y_data, train_size=split_factor, random_state
 model_id = 1
 #选择模型ID为2的DecisionTree模型
 #model_id=2
+
 print('初始化...')
 model_chooser = ModelChooser(model_id, spu)
 
@@ -172,12 +163,12 @@ params = {
 }
 '''
 
-#*******************************************预测*************************************************
-
-
 # 训练模型
 print('训练模型...')
 model_chooser.train(X_train, y_train, params)
+
+
+#*******************************************预测*************************************************
 
 # 评估模型
 print('评估模型...')
