@@ -85,13 +85,14 @@ DecisionTree = 6
 
 
 from model.SecureLogisticRegression import SecureLogisticRegression
-
+from DecisionTree import DecisionTree
 # 其他模型的导入...
 
 class ModelChooser:
     def __init__(self, model_id, spu, other=None):
         self.models = {
             1: SecureLogisticRegression,
+            2: DecisionTree,
             # 其他模型的映射...
         }
         self.model_class = self.models.get(model_id)
