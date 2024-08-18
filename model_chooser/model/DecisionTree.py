@@ -1,5 +1,4 @@
 from secretflow.ml.boost.ss_xgb_v import Xgb
-from toolfunc import timing
 
 '''
 params = {
@@ -17,15 +16,12 @@ params = {
 '''
 
 class DecisionTree:
-    @timing
     def __init__(self,spu):
         self.Xgb = Xgb(spu)
 
-    @timing
     def train(self, X_train, y_train, params):
         self.model=self.Xgb.train(params,X_train, y_train)
 
-    @timing
     def predict(self, X_test):
         return self.model.predict(X_test)
 
