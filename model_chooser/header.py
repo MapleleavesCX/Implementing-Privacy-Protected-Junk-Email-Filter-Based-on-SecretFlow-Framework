@@ -71,11 +71,12 @@ v1.5.0b0
 # 以下为模型选择的常量model_chose定义：
 '''
 LogisticRegression = 1
-NaiveBayesian = 2
-Perceptron = 3
-SVM = 4
-NN = 5
-DecisionTree = 6
+DecisionTree = 2
+NaiveBayesian = 3
+Perceptron = 4
+SVM = 5
+NN = 6
+
 '''
 
 
