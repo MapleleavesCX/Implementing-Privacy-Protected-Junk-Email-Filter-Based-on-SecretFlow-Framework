@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+# @Date    : 2024/08/18
+# @Author  : sdushushu
+
 from secretflow.ml.boost.ss_xgb_v import Xgb
 
 '''
