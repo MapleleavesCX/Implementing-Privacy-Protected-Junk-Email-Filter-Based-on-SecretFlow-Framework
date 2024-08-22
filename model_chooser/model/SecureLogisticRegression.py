@@ -1,7 +1,10 @@
+# -*- coding: utf-8 -*-
+# @Date    : 2024/08/10
+# @Author  : MapleleavesCX
 
-# 以下为各类模型的统一定义，即定义为一个class，名称不同但是内部函数需要与header.py一致，train_data是传入的数据集,config是传入的模型参数字典
-# 以逻辑回归为例：
+from secretflow.ml.linear.ss_sgd import SSRegression
 
+# train训练额外参数参考列表：
 '''
 params = {
     'epochs':5,
@@ -14,10 +17,13 @@ params = {
 }
 '''
 
-from secretflow.ml.linear.ss_sgd import SSRegression
 
 class SecureLogisticRegression:
-    def __init__(self,spu):
+
+    def __init__(self,  
+                 spu, 
+                 Server, Clients, 
+                 others):
         self.model = SSRegression(spu)
 
     def train(self, X_train, y_train, params):
