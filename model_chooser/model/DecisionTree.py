@@ -19,12 +19,15 @@ params = {
 }
 '''
 
-class DecisionTree:
-    def __init__(self,spu):
+class SecureDecisionTree:
+    def __init__(self,  
+                 spu, 
+                 Server, Clients, 
+                 others):
         self.Xgb = Xgb(spu)
 
     def train(self, X_train, y_train, params):
-        self.model=self.Xgb.train(params,X_train, y_train)
+        self.model=self.Xgb.train(dtrain=X_train, label=y_train, **params)
 
     def predict(self, X_test):
         return self.model.predict(X_test)
