@@ -4,6 +4,7 @@
 
 from secretflow.ml.boost.ss_xgb_v import Xgb
 
+# train训练额外参数参考列表：
 '''
 params = {
     # for more detail, see Xgb API doc
