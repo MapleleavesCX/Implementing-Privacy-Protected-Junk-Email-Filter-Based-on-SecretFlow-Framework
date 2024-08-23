@@ -40,7 +40,6 @@ others = {
 # train训练额外参数参考列表：
 '''
 params = {
-    'validation_data':(X_test, y_test),
     'epochs':10,
     'sampler_method':"batch",
     'batch_size':128,
