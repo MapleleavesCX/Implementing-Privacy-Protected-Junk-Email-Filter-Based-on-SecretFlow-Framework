@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# @Date    : 2024/08/XX
+# @Date    : 2024/08/23
 # @Author  :Rex
 
 from tensorflow import keras
@@ -76,7 +76,7 @@ class SecureNN:
             **params
         )
 
-    '''看看是否支持预测函数？'''
+   
     def predict(self, X_test):
         return self.model.predict(X_test, batch_size=32)
 '''
